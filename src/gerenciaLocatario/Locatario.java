@@ -10,7 +10,7 @@ public class Locatario {
 	String celular;
 	Endereco endereco;
 	static List<Locatario> cadastroLocatario = new LinkedList<Locatario>();
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -30,7 +30,7 @@ public class Locatario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -42,22 +42,22 @@ public class Locatario {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	
+
 	public static void cadastrarLocatario(Locatario locat) {
 		boolean adicionou = cadastroLocatario.add(locat);
 		if (adicionou)
 			JOptionPane.showMessageDialog(null, "Locatario cadastrado com sucesso!");
 	}
-	
+
 	public void removerLocatarioCadastro() {
-	boolean excluiu = false;
+		boolean excluiu = false;
 		Locatario Excluir = pesquisarLocatario();
 		if (Excluir != null)
 			excluiu = cadastroLocatario.remove(Excluir);
-			if (excluiu)
-				JOptionPane.showMessageDialog(null, "Locatario removido com sucesso!");
+		if (excluiu)
+			JOptionPane.showMessageDialog(null, "Locatario removido com sucesso!");
 	}
-	
+
 	public String imprimirLocatario() {
 		String resposta = "";
 		for (Locatario l : cadastroLocatario) {
@@ -65,7 +65,16 @@ public class Locatario {
 		}
 		return resposta;
 	}
-	
+
+	public static  void mostrarDadosLocatario() {
+		Locatario l = pesquisarLocatario();
+		if (l != null) {
+			JOptionPane.showMessageDialog(null, "Os dados de " + l.getNome() + ":\n"
+					+ "Celular: " + l.getCelular() + "\n"
+					+ "Cidade: " +  l.endereco.getCidade());
+		}
+	}
+
 	public static void cadastrarPessoaFisica() {
 		String nome = JOptionPane.showInputDialog("Nome: ");
 		if (nome.equals("")) {
@@ -90,7 +99,7 @@ public class Locatario {
 		pfs.setEndereco(new Endereco(cidade, estado, rua, numero, complemento, bairro, cep));
 		cadastrarLocatario(pfs);
 	}
-	
+
 	public void cadastrarPessoaJuridica() {
 		String cnpj = JOptionPane.showInputDialog("CNPJ: ");
 		String nome = JOptionPane.showInputDialog("Nome da Empresa: ");
@@ -102,9 +111,9 @@ public class Locatario {
 
 	public void alterarLocatario() {
 		Locatario l = pesquisarLocatario();
-		if (l instanceof PessoaFisica) {
+		if (l != null && l instanceof PessoaFisica) {
 			PessoaFisica pf = (PessoaFisica) l;
-			String strEscolha = JOptionPane.showInputDialog("Digite:\n" 
+			String strEscolha = JOptionPane.showInputDialog("Digite: \n" 
 					+ "1 - Para alterar nome: \n"
 					+ "2 - Para alterar email: \n"
 					+ "3 - Para alterar celular \n"
@@ -114,13 +123,88 @@ public class Locatario {
 					+ "7 - Para alterar numero: \n"
 					+ "8 - Para alterar complemento: \n"
 					+ "9 - Para alterar estado civil: \n"
-					+ "10 - Para alterar cpf \n");
-				
+					+ "10 - Para alterar cpf:");
+
 			int escolha = Integer.parseInt(strEscolha);
 			if (escolha == 1) {
 				String nomeMod = JOptionPane.showInputDialog("Digite o novo valor de nome: ");
 				l.setNome(nomeMod);
 				JOptionPane.showMessageDialog(null, "nome alterado com sucesso!");
+			}
+			if (escolha == 2) {
+				String emailMod = JOptionPane.showInputDialog("Digite o novo valor de email: ");
+				l.setEmail(emailMod);
+				JOptionPane.showMessageDialog(null, "email alterado com sucesso!");
+			}
+			if (escolha == 3) {
+				String celularMod = JOptionPane.showInputDialog("Digite o novo valor de celular: ");
+				l.setCelular(celularMod);
+				JOptionPane.showMessageDialog(null, "celular alterado com sucesso!");
+			}
+			if (escolha == 4) {
+				String cidadeMod = JOptionPane.showInputDialog("Digite o novo valor de cidade: ");
+				l.endereco.setCidade(cidadeMod);
+				JOptionPane.showMessageDialog(null, "cidade alterada com sucesso!");
+			}
+			if (escolha == 5) {
+				String estadoMod = JOptionPane.showInputDialog("Digite o novo valor de estado: ");
+				l.endereco.setEstado(estadoMod);
+				JOptionPane.showMessageDialog(null, "estado alterado com sucesso!");
+			}
+			if (escolha == 6) {
+				String ruaMod = JOptionPane.showInputDialog("Digite o novo valor de rua: ");
+				l.endereco.setRua(ruaMod);
+				JOptionPane.showMessageDialog(null, "rua alterada com sucesso!");
+			}
+			if (escolha == 7) {
+				String strNumeroMod = JOptionPane.showInputDialog("Digite o novo valor de numero: ");
+				int numeroMod = Integer.parseInt(strNumeroMod);
+				l.endereco.setNumero(numeroMod);
+				JOptionPane.showMessageDialog(null, "numero alterado com sucesso!");
+			}
+			if (escolha == 8) {
+				String complementoMod = JOptionPane.showInputDialog("Digite o novo valor de complemento: ");
+				l.endereco.setComplemento(complementoMod);
+				JOptionPane.showMessageDialog(null, "complemento alterado com sucesso!");
+			}
+			if (escolha == 9) {
+				String estadoCivilMod = JOptionPane.showInputDialog("Digite o novo valor de estado civil: ");
+				pf.setEstadoCivil(estadoCivilMod);
+				JOptionPane.showMessageDialog(null, "estado civil alterado com sucesso!");
+			}
+			if (escolha == 10) {
+				String cpfMod = JOptionPane.showInputDialog("Digite o novo valor de cpf: ");
+				pf.setCpf(cpfMod);
+				JOptionPane.showMessageDialog(null, "cpf alterado com sucesso!");
+			}
+		}
+		if (l != null && l instanceof PessoaJuridica) {
+			PessoaJuridica pj = (PessoaJuridica) l;
+			String strEscolha = JOptionPane.showInputDialog("Digite:\n" 
+					+ "1 - Para alterar nome: \n"
+					+ "2 - Para alterar email: \n"
+					+ "3 - Para alterar celular: \n"
+					+ "4 - Para alterar cnpj:");
+			int escolha = Integer.parseInt(strEscolha);
+			if (escolha == 1) {
+				String nomeMod = JOptionPane.showInputDialog("Digite o novo valor de nome: ");
+				l.setNome(nomeMod);
+				JOptionPane.showMessageDialog(null, "nome alterado com sucesso!");
+			}
+			if (escolha == 2) {
+				String emailMod = JOptionPane.showInputDialog("Digite o novo valor de email: ");
+				l.setEmail(emailMod);
+				JOptionPane.showMessageDialog(null, "email alterado com sucesso!");
+			}
+			if (escolha == 3) {
+				String celularMod = JOptionPane.showInputDialog("Digite o novo valor de celular: ");
+				l.setCelular(celularMod);
+				JOptionPane.showMessageDialog(null, "celular alterado com sucesso!");
+			}
+			if (escolha == 4) {
+				String cnpjMod = JOptionPane.showInputDialog("Digite o novo valor de cnpj: ");
+				pj.setCnpj(cnpjMod);
+				JOptionPane.showMessageDialog(null, "cnpj alterado com sucesso!");
 			}
 		}
 	}
@@ -132,7 +216,6 @@ public class Locatario {
 		int escolha = Integer.parseInt(strEscolha);
 
 		if (escolha == 1) {
-
 			String nome = JOptionPane.showInputDialog("Digite o nome do locatario: ");
 			String cpf = JOptionPane.showInputDialog("Digte o CPF do locatario: ");
 

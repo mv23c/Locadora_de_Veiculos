@@ -57,6 +57,7 @@ public class App {
 						l.alterarLocatario();
 						System.out.println("Mostrar membros do cadastro: ");
 						System.out.println(l.imprimirLocatario());
+
 						break;
 					}
 					case 'C': { // Pesquisar locatario
@@ -69,14 +70,19 @@ public class App {
 						System.out.println(l.imprimirLocatario());
 						break;
 					}
-					case 'E': { // Retornar ao menu anterior
+					case 'E': {
+						l.mostrarDadosLocatario();
+						break;
+					}
+
+					case 'F': { // Retornar ao menu anterior
 						break;
 					}
 					default:
 						JOptionPane.showMessageDialog(null, "Opcao invalida!");
 						opcao1 = 'I';
 					}
-				} while (opcao1 != 'E');
+				} while (opcao1 != 'F');
 				break;
 			}
 
@@ -197,13 +203,14 @@ public class App {
 	}
 
 	private static char menuGerenciaLocatario() {
-		char opcao1 = 'E';
+		char opcao1 = 'F';
 		String menu = "Menu Gerencia de Locatarios \n"
 				+ "A) Cadastrar Locatario \n"
 				+ "B) Alterar dados de Locatario \n"
 				+ "C) Pesquisar Locatario \n"
 				+ "D) Excluir Locatario \n"
-				+ "E) Retornar ao Menu Anterior";
+				+ "E) Mostrar dados de Locatario \n"
+				+ "F) Retornar ao Menu Anterior";
 
 		String strOpcao1 = JOptionPane.showInputDialog(menu);
 		opcao1 = strOpcao1.toUpperCase().charAt(0);
@@ -259,5 +266,5 @@ public class App {
 		opcao5 = strOpcao5.toUpperCase().charAt(0);
 		return opcao5;
 	}
-	
 }
+
