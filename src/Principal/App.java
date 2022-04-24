@@ -28,7 +28,7 @@ public class App {
 							switch (opcao5) {
 							case 'A': { // Cadastrar pessoa fisica (PF)
 								try {
-									cadastrarPessoaFisica();
+									l.cadastrarPessoaFisica();
 								} catch (NullPointerException | CampoEmBrancoException ex) {
 									String msg = ex.getMessage();
 									System.out.println("Exception " + msg);
@@ -38,7 +38,7 @@ public class App {
 								break;
 							}
 							case 'B': { // Cadastrar pessoa jurídica (PJ)
-								cadastrarPessoaJuridica();
+								l.cadastrarPessoaJuridica();
 								System.out.println("Mostrar membros do cadastro: ");
 								System.out.println(l.imprimirLocatario());
 								break;
@@ -64,7 +64,7 @@ public class App {
 						break;
 					}
 					case 'D': { // Remover locatario
-						removerLocatarioCadastro();
+						l.removerLocatarioCadastro();
 						System.out.println("Mostrar membros do cadastro: ");
 						System.out.println(l.imprimirLocatario());
 						break;
@@ -182,7 +182,6 @@ public class App {
 		} while (opcao != 'D');
 	}
 
-	//-----------------------------------------------------------------------------------------------------------
 	private static char menuPrincipal() {
 		char opcao = 'D';
 		String menu = nomeLocadora + "\n CNPJ: " + cnpjLocadora + "\n\n"
@@ -201,7 +200,7 @@ public class App {
 		char opcao1 = 'E';
 		String menu = "Menu Gerencia de Locatarios \n"
 				+ "A) Cadastrar Locatario \n"
-				+ "B) Buscar Locatario \n"
+				+ "B) Alterar dados de Locatario \n"
 				+ "C) Pesquisar Locatario \n"
 				+ "D) Excluir Locatario \n"
 				+ "E) Retornar ao Menu Anterior";
@@ -261,53 +260,4 @@ public class App {
 		return opcao5;
 	}
 	
-	//-----------------------------------------------------------------------------------------------------
-
-	public static void addLocatarioCadastro(Locatario l) {
-		boolean cadastrou = l.cadastrarLocatario(l);
-		if (cadastrou)
-			JOptionPane.showMessageDialog(null, "Locatario cadastrado com sucesso!");
-	}
-
-	public static void removerLocatarioCadastro() {
-		Locatario locatarioParaExcluir = l.pesquisarLocatario();
-		if (locatarioParaExcluir != null)
-			l.removerLocatario(locatarioParaExcluir);
-	}
-
-	public static void cadastrarPessoaFisica() {
-		String nome = JOptionPane.showInputDialog("Nome: ");
-		if (nome.equals("")) {
-			throw new CampoEmBrancoException ("Campo em Branco");
-		}
-		String email = JOptionPane.showInputDialog("E-mail: ");
-		String celular = JOptionPane.showInputDialog("Celular: ");
-		String cpf = JOptionPane.showInputDialog("CPF: ");
-		if (cpf.equals("")) {
-			throw new CampoEmBrancoException ("Campo em Branco");
-		}
-		String estadoCivil = JOptionPane.showInputDialog("Estado Civil: ");
-		String cidade = JOptionPane.showInputDialog("Cidade: ");
-		String estado = JOptionPane.showInputDialog("Estado: ");
-		String rua = JOptionPane.showInputDialog("Rua: ");
-		String strNumero = JOptionPane.showInputDialog("Numero: ");
-		int numero = Integer.parseInt(strNumero); 
-		String complemento = JOptionPane.showInputDialog("Complemento: ");
-		String bairro = JOptionPane.showInputDialog("Bairro: ");
-		String cep = JOptionPane.showInputDialog("CEP: ");
-		PessoaFisica pfs = new PessoaFisica(nome, email, celular, estadoCivil, cpf);
-		pfs.setEndereco(new Endereco(cidade, estado, rua, numero, complemento, bairro, cep));
-		addLocatarioCadastro(pfs);
-	}
-
-	public static void cadastrarPessoaJuridica() {
-		String cnpj = JOptionPane.showInputDialog("CNPJ: ");
-		String nome = JOptionPane.showInputDialog("Nome da Empresa: ");
-		String email = JOptionPane.showInputDialog("E-mail: ");
-		String celular = JOptionPane.showInputDialog("Celular: ");
-		PessoaJuridica pjs = new PessoaJuridica(nome, email, celular, cnpj);
-		addLocatarioCadastro(pjs);
-	}
-	
 }
-
