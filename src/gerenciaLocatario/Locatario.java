@@ -102,8 +102,14 @@ public class Locatario {
 
 	public void cadastrarPessoaJuridica() {
 		String cnpj = JOptionPane.showInputDialog("CNPJ: ");
+		if (cnpj.equals("")) {
+			throw new CampoEmBrancoException ("Campo em Branco");
+		}
 		String nome = JOptionPane.showInputDialog("Nome da Empresa: ");
 		String email = JOptionPane.showInputDialog("E-mail: ");
+		if (email.equals("")) {
+			throw new CampoEmBrancoException ("Campo em Branco");
+		}
 		String celular = JOptionPane.showInputDialog("Celular: ");
 		PessoaJuridica pjs = new PessoaJuridica(nome, email, celular, cnpj);
 		cadastrarLocatario(pjs);
