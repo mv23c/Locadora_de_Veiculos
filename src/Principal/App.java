@@ -61,7 +61,12 @@ public class App {
 						break;
 					}
 					case 'C': { // Pesquisar locatario
-						Locatario.pesquisarLocatario();
+						try {
+							Locatario.pesquisarLocatario();
+						} catch (ObjetoNaoEncontradoException ex) {
+							String msg = ex.getMessage();
+							System.out.println("Exception " + msg);
+						}
 						break;
 					}
 					case 'D': { // Remover locatario
@@ -267,4 +272,3 @@ public class App {
 		return opcao5;
 	}
 }
-

@@ -214,6 +214,7 @@ public class Locatario {
 				+ "1 - Para pesquisar pessoa física ou\n"
 				+ "2 - Para pesquisar pessoa jurídica");
 		int escolha = Integer.parseInt(strEscolha);
+		Locatario locatarioPesquisado = null; 
 
 		if (escolha == 1) {
 			String nome = JOptionPane.showInputDialog("Digite o nome do locatario: ");
@@ -224,10 +225,10 @@ public class Locatario {
 					PessoaFisica pf = (PessoaFisica) l; 
 					if (l.getNome().equals(nome) && pf.getCpf().equals(cpf)) {
 						JOptionPane.showMessageDialog(null, "locatario encontrado!");
-						return l;
-					}
-				}
-			}	
+						locatarioPesquisado = l;
+					} 
+				} 
+			}
 		} else if (escolha == 2) {
 			String cnpj = JOptionPane.showInputDialog("Digite o CNPJ do locatario: ");
 			String email = JOptionPane.showInputDialog("Digite o E-Mail do locatario: ");
@@ -237,13 +238,15 @@ public class Locatario {
 					PessoaJuridica pjs = (PessoaJuridica) l;
 					if (l.getEmail().equals(email) && pjs.getCnpj().equals(cnpj)) {
 						JOptionPane.showMessageDialog(null, "locatario encontrado!");
-						return l;
+						locatarioPesquisado = l;
 					}
 				}
 			}
 		} 
-		JOptionPane.showMessageDialog(null, "locatario não encontrado!");
-		return null;
+		if (locatarioPesquisado == null) {
+			throw new ObjetoNaoEncontradoException("Objeto nao encontrado!");
+		}
+		return locatarioPesquisado;
 	}
 	
 }
