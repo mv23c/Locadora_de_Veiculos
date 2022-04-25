@@ -243,10 +243,14 @@ public class Locatario {
 				}
 			}
 		} 
-		if (locatarioPesquisado == null) {
-			throw new ObjetoNaoEncontradoException("Objeto nao encontrado!");
+		try {
+			if (locatarioPesquisado == null) {
+				throw new ObjetoNaoEncontradoException("Objeto nao encontrado!");
+			}
+		} catch (ObjetoNaoEncontradoException ex) {
+			String msg = ex.getMessage();
+			System.out.println("Exception " + msg);
 		}
 		return locatarioPesquisado;
 	}
-	
 }

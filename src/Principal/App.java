@@ -61,12 +61,13 @@ public class App {
 						break;
 					}
 					case 'C': { // Pesquisar locatario
-						try {
-							Locatario.pesquisarLocatario();
-						} catch (ObjetoNaoEncontradoException ex) {
-							String msg = ex.getMessage();
-							System.out.println("Exception " + msg);
-						}
+//						try {
+//							Locatario.pesquisarLocatario();
+//						} catch (ObjetoNaoEncontradoException ex) {
+//							String msg = ex.getMessage();
+//							System.out.println("Exception " + msg);
+//						}
+						Locatario.pesquisarLocatario();
 						break;
 					}
 					case 'D': { // Remover locatario
