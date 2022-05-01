@@ -69,9 +69,12 @@ public class Locatario {
 	public static  void mostrarDadosLocatario() {
 		Locatario l = pesquisarLocatario();
 		if (l != null) {
-			JOptionPane.showMessageDialog(null, "Os dados de " + l.getNome() + ":\n"
+			JOptionPane.showMessageDialog(null, "Os dados do locatario pesquisado são: \n" 
+					+"Nome: " + l.getNome() + "\n"
+					+ "Email: " + l.getEmail() + "\n"
 					+ "Celular: " + l.getCelular() + "\n"
-					+ "Cidade: " +  l.endereco.getCidade());
+					//+ "Cidade: " +  l.endereco.getCidade()
+					);
 		}
 	}
 
@@ -260,3 +263,4 @@ public class Locatario {
 		return locatarioPesquisado;
 	}
 }
+
