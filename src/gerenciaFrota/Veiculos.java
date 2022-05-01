@@ -1,356 +1,22 @@
 package gerenciaFrota;
 
-//import javax.swing.JOptionPane;
+import java.util.LinkedList;
+import java.util.List;
+
+import gerenciaLocatario.ObjetoNaoEncontradoException;
+
+import javax.swing.JOptionPane;
 
 public class Veiculos {
 	String marca,
-			modelo,
-			anoFabricacao,
-			anoModelo,
-			renavam;
+	modelo,
+	anoFabricacao,
+	anoModelo,
+	renavam;
 	float capacidadeTanque;
-
 	Diaria diaria;
+	static List<Veiculos> cadastroVeiculos = new LinkedList<Veiculos>();
 
-	private static void cadastrarVeiculo(Veiculos ve) {
-		// Veiculos[] temp = new Veiculos[veic.length + 1];
-		// for (int i = 0; i < veic.length; i++) {
-		// temp[i] = veic[i];
-		// }
-		// temp[veic.length] = ve;
-		// veic = temp;
-		// JOptionPane.showMessageDialog(null, "Ve�culo cadastrado com sucesso!");
-	}
-
-	public static void cadastrarMotocicleta() {
-		/*
-		 * String marca = JOptionPane.showInputDialog("Marca: ");
-		 * String modelo = JOptionPane.showInputDialog("Modelo: ");
-		 * String anoFabricacao = JOptionPane.showInputDialog("Ano de fabrica��o: ");
-		 * String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
-		 * String renavam = JOptionPane.showInputDialog("Renavam: ");
-		 * String capacidadeTanque =
-		 * JOptionPane.showInputDialog("Capacidade do tanque de combust�vel: ");
-		 * String freiosAbs = JOptionPane.showInputDialog("Possui freios Abs? ");
-		 * String controleTracao =
-		 * JOptionPane.showInputDialog("Possui controle de tra��o? ");
-		 * String pilotoAutomatico =
-		 * JOptionPane.showInputDialog("Possui piloto autom�tico? ");
-		 * String modoPilotagem = JOptionPane.showInputDialog("Modo de pilotagem: ");
-		 * Motocicletas moto = new Motocicletas(marca, modelo, anoFabricacao, anoModelo,
-		 * renavam, capacidadeTanque,
-		 * freiosAbs, controleTracao, pilotoAutomatico, modoPilotagem);
-		 * cadastrarVeiculo(moto);
-		 */
-	}
-
-	public static void cadastrarVeiculosPassageiros() {
-		/*
-		 * String marca = JOptionPane.showInputDialog("Marca: ");
-		 * String modelo = JOptionPane.showInputDialog("Modelo: ");
-		 * String anoFabricacao = JOptionPane.showInputDialog("Ano de fabrica��o: ");
-		 * String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
-		 * String renavam = JOptionPane.showInputDialog("Renavam: ");
-		 * String capacidadeTanque =
-		 * JOptionPane.showInputDialog("Capacidade do tanque de combust�vel: ");
-		 * String numeroOcupantes =
-		 * JOptionPane.showInputDialog("N�mero de ocupantes: ");
-		 * String arCondicionado =
-		 * JOptionPane.showInputDialog("Possui ar-condicionado? ");
-		 * String direcaoHidraulica =
-		 * JOptionPane.showInputDialog("Possui dire��o hidr�ulica? ");
-		 * String tv = JOptionPane.showInputDialog("Pssui tv? ");
-		 * VeiculosPassageiros veicPas = new VeiculosPassageiros(marca, modelo,
-		 * anoFabricacao, anoModelo, renavam,
-		 * capacidadeTanque, numeroOcupantes, arCondicionado, direcaoHidraulica, tv);
-		 * cadastrarVeiculo(veicPas);
-		 */
-	}
-
-	public static void cadastrarVeiculosCarga() {
-		/*
-		 * String marca = JOptionPane.showInputDialog("Marca: ");
-		 * String modelo = JOptionPane.showInputDialog("Modelo: ");
-		 * String anoFabricacao = JOptionPane.showInputDialog("Ano de fabrica��o: ");
-		 * String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
-		 * String renavam = JOptionPane.showInputDialog("Renavam: ");
-		 * String capacidadeTanque =
-		 * JOptionPane.showInputDialog("Capacidade do tanque de combust�vel: ");
-		 * String pesoMaximo = JOptionPane.showInputDialog("Peso m�ximo: ");
-		 * String taraVeiculo = JOptionPane.showInputDialog("Tara do ve�culo: ");
-		 * String compartimentoCarga =
-		 * JOptionPane.showInputDialog("Compartimento de carga: ");
-		 * String tipoCompartimento =
-		 * JOptionPane.showInputDialog("Tipo do compartimento: ");
-		 * VeiculosCarga veicCar = new VeiculosCarga(marca, modelo, anoFabricacao,
-		 * anoModelo, renavam, capacidadeTanque,
-		 * pesoMaximo, taraVeiculo, compartimentoCarga, tipoCompartimento);
-		 * cadastrarVeiculo(veicCar);
-		 */
-	}
-
-	public static void cadastrarCompactoLuxo() {
-		/*
-		 * String marca = JOptionPane.showInputDialog("Marca: ");
-		 * String modelo = JOptionPane.showInputDialog("Modelo: ");
-		 * String anoFabricacao = JOptionPane.showInputDialog("Ano de fabrica��o: ");
-		 * String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
-		 * String renavam = JOptionPane.showInputDialog("Renavam: ");
-		 * String capacidadeTanque =
-		 * JOptionPane.showInputDialog("Capacidade do tanque de combust�vel: ");
-		 * String arCondicionado =
-		 * JOptionPane.showInputDialog("Possui ar-condicionado? ");
-		 * String direcaoHidraulica =
-		 * JOptionPane.showInputDialog("Possui dire��o hidr�ulica? ");
-		 * String cambioAutomatico =
-		 * JOptionPane.showInputDialog("Possui c�mbio autom�tico? ");
-		 * CompactoLuxo compLuxo = new CompactoLuxo(marca, modelo, anoFabricacao,
-		 * anoModelo, renavam, capacidadeTanque,
-		 * arCondicionado, direcaoHidraulica, cambioAutomatico);
-		 * cadastrarVeiculo(compLuxo);
-		 */
-	}
-
-	public static void cadastrarCompacto() {
-		/*
-		 * String marca = JOptionPane.showInputDialog("Marca: ");
-		 * String modelo = JOptionPane.showInputDialog("Modelo: ");
-		 * String anoFabricacao = JOptionPane.showInputDialog("Ano de fabrica��o: ");
-		 * String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
-		 * String renavam = JOptionPane.showInputDialog("Renavam: ");
-		 * String capacidadeTanque =
-		 * JOptionPane.showInputDialog("Capacidade do tanque de combust�vel: ");
-		 * String arCondicionado =
-		 * JOptionPane.showInputDialog("Possui ar-condicionado? ");
-		 * String direcaoHidraulica =
-		 * JOptionPane.showInputDialog("Possui dire��o hidr�ulica? ");
-		 * String cambioAutomatico =
-		 * JOptionPane.showInputDialog("Possui c�mbio autom�tico? ");
-		 * Compacto comp = new Compacto(marca, modelo, anoFabricacao, anoModelo,
-		 * renavam, capacidadeTanque, arCondicionado,
-		 * direcaoHidraulica, cambioAutomatico);
-		 * cadastrarVeiculo(comp);
-		 */
-	}
-
-	public static void cadastrarSuvs() {
-		/*
-		 * String marca = JOptionPane.showInputDialog("Marca: ");
-		 * String modelo = JOptionPane.showInputDialog("Modelo: ");
-		 * String anoFabricacao = JOptionPane.showInputDialog("Ano de fabrica��o: ");
-		 * String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
-		 * String renavam = JOptionPane.showInputDialog("Renavam: ");
-		 * String capacidadeTanque =
-		 * JOptionPane.showInputDialog("Capacidade do tanque de combust�vel: ");
-		 * String arCondicionado =
-		 * JOptionPane.showInputDialog("Possui ar-condicionado? ");
-		 * String direcaoHidraulica =
-		 * JOptionPane.showInputDialog("Possui dire��o hidr�ulica? ");
-		 * String cambioAutomatico =
-		 * JOptionPane.showInputDialog("Possui c�mbio autom�tico? ");
-		 * Suvs suv = new Suvs(marca, modelo, anoFabricacao, anoModelo, renavam,
-		 * capacidadeTanque, arCondicionado,
-		 * direcaoHidraulica, cambioAutomatico);
-		 * cadastrarVeiculo(suv);
-		 */
-	}
-
-	public static void cadastrarSedan() {
-		/*
-		 * String marca = JOptionPane.showInputDialog("Marca: ");
-		 * String modelo = JOptionPane.showInputDialog("Modelo: ");
-		 * String anoFabricacao = JOptionPane.showInputDialog("Ano de fabrica��o: ");
-		 * String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
-		 * String renavam = JOptionPane.showInputDialog("Renavam: ");
-		 * String capacidadeTanque =
-		 * JOptionPane.showInputDialog("Capacidade do tanque de combust�vel: ");
-		 * String arCondicionado =
-		 * JOptionPane.showInputDialog("Possui ar-condicionado? ");
-		 * String direcaoHidraulica =
-		 * JOptionPane.showInputDialog("Possui dire��o hidr�ulica? ");
-		 * String cambioAutomatico =
-		 * JOptionPane.showInputDialog("Possui c�mbio autom�tico? ");
-		 * Sedan sed = new Sedan(marca, modelo, anoFabricacao, anoModelo, renavam,
-		 * capacidadeTanque, arCondicionado,
-		 * direcaoHidraulica, cambioAutomatico);
-		 * cadastrarVeiculo(sed);
-		 */
-
-	}
-
-	public static void cadastrarVeiculoPasseio() {
-		// Implementar o m�todo cadastro de ve�culos de passeio
-	}
-
-	public static void cadastrarVeiculosUtilitarios() {
-		// Implementar o m�todo cadastro de ve�culos utilit�rios
-	}
-
-	public static void imprimirLocatario() {
-		/*
-		 * for (int x = 0; x < veic.length; x++) {
-		 * if (veic[x] instanceof Motocicletas) {
-		 * Motocicletas temp = (Motocicletas) veic[x];
-		 * String resposta = veic[x].getMarca() + "\n" +
-		 * veic[x].getModelo() + "\n" +
-		 * veic[x].getAnoFabricacao() + "\n" +
-		 * veic[x].getAnoModelo() + "\n" +
-		 * veic[x].getRenavam() + "\n" +
-		 * veic[x].getCapacidadeTanque() + "\n" +
-		 * temp.getControleTracao() + "\n" +
-		 * temp.getFreiosAbs() + "\n" +
-		 * temp.getPilotoAutomatico() + "\n" +
-		 * temp.getModoPilotagem();
-		 * JOptionPane.showMessageDialog(null, resposta);
-		 * 
-		 * } else if (veic[x] instanceof VeiculosPassageiros) {
-		 * VeiculosPassageiros temp = (VeiculosPassageiros) veic[x];
-		 * String resposta = veic[x].getMarca() + "\n" +
-		 * veic[x].getModelo() + "\n" +
-		 * veic[x].getAnoFabricacao() + "\n" +
-		 * veic[x].getAnoModelo() + "\n" +
-		 * veic[x].getRenavam() + "\n" +
-		 * veic[x].getCapacidadeTanque() + "\n" +
-		 * temp.getNumeroOcupantes() + "\n" +
-		 * temp.getArCondicionado() + "\n" +
-		 * temp.getDirecaoHidraulica() + "\n" +
-		 * temp.getTv();
-		 * JOptionPane.showMessageDialog(null, resposta);
-		 * 
-		 * } else if (veic[x] instanceof VeiculosCarga) {
-		 * VeiculosCarga temp = (VeiculosCarga) veic[x];
-		 * String resposta = veic[x].getMarca() + "\n" +
-		 * veic[x].getModelo() + "\n" +
-		 * veic[x].getAnoFabricacao() + "\n" +
-		 * veic[x].getAnoModelo() + "\n" +
-		 * veic[x].getRenavam() + "\n" +
-		 * veic[x].getCapacidadeTanque() + "\n" +
-		 * temp.getPesoMaximo() + "\n" +
-		 * temp.getTaraVeiculo() + "\n" +
-		 * temp.getCompartimentoCarga() + "\n" +
-		 * temp.getTipoCompartimento();
-		 * JOptionPane.showMessageDialog(null, resposta);
-		 * 
-		 * } else if (veic[x] instanceof CompactoLuxo) {
-		 * CompactoLuxo temp = (CompactoLuxo) veic[x];
-		 * String resposta = veic[x].getMarca() + "\n" +
-		 * veic[x].getModelo() + "\n" +
-		 * veic[x].getAnoFabricacao() + "\n" +
-		 * veic[x].getAnoModelo() + "\n" +
-		 * veic[x].getRenavam() + "\n" +
-		 * veic[x].getCapacidadeTanque() + "\n" +
-		 * temp.getArCondicionado() + "\n" +
-		 * temp.getDirecaoHidraulica() + "\n" +
-		 * temp.getCambioAutomatico() + "\n";
-		 * JOptionPane.showMessageDialog(null, resposta);
-		 * 
-		 * } else if (veic[x] instanceof Compacto) {
-		 * Compacto temp = (Compacto) veic[x];
-		 * String resposta = veic[x].getMarca() + "\n" +
-		 * veic[x].getModelo() + "\n" +
-		 * veic[x].getAnoFabricacao() + "\n" +
-		 * veic[x].getAnoModelo() + "\n" +
-		 * veic[x].getRenavam() + "\n" +
-		 * veic[x].getCapacidadeTanque() + "\n" +
-		 * temp.getArCondicionado() + "\n" +
-		 * temp.getDirecaoHidraulica() + "\n" +
-		 * temp.getCambioAutomatico() + "\n";
-		 * JOptionPane.showMessageDialog(null, resposta);
-		 * 
-		 * } else if (veic[x] instanceof Suvs) {
-		 * Suvs temp = (Suvs) veic[x];
-		 * String resposta = veic[x].getMarca() + "\n" +
-		 * veic[x].getModelo() + "\n" +
-		 * veic[x].getAnoFabricacao() + "\n" +
-		 * veic[x].getAnoModelo() + "\n" +
-		 * veic[x].getRenavam() + "\n" +
-		 * veic[x].getCapacidadeTanque() + "\n" +
-		 * temp.getArCondicionado() + "\n" +
-		 * temp.getDirecaoHidraulica() + "\n" +
-		 * temp.getCambioAutomatico() + "\n";
-		 * JOptionPane.showMessageDialog(null, resposta);
-		 * 
-		 * } else if (veic[x] instanceof Sedan) {
-		 * Sedan temp = (Sedan) veic[x];
-		 * String resposta = veic[x].getMarca() + "\n" +
-		 * veic[x].getModelo() + "\n" +
-		 * veic[x].getAnoFabricacao() + "\n" +
-		 * veic[x].getAnoModelo() + "\n" +
-		 * veic[x].getRenavam() + "\n" +
-		 * veic[x].getCapacidadeTanque() + "\n" +
-		 * temp.getArCondicionado() + "\n" +
-		 * temp.getDirecaoHidraulica() + "\n" +
-		 * temp.getCambioAutomatico() + "\n";
-		 * JOptionPane.showMessageDialog(null, resposta);
-		 * }
-		 * }
-		 */
-	}
-
-	// public static Veiculos pesquisarVeiculosRenavam() {
-	/*
-	 * String strRenavam = JOptionPane.showInputDialog("Digite o renavam: ");
-	 * for (int x = 0; x < veic.length; x++) {
-	 * if (veic[x] instanceof Motocicletas) {
-	 * Motocicletas temp = (Motocicletas) veic[x];
-	 * String renavam = temp.getRenavam();
-	 * if (renavam.equals(strRenavam)) {
-	 * JOptionPane.showMessageDialog(null, "Est� na lista!");
-	 * return veic[x];
-	 * }
-	 * } else if (veic[x] instanceof VeiculosPassageiros) {
-	 * VeiculosPassageiros temp = (VeiculosPassageiros) veic[x];
-	 * String renavam = temp.getRenavam();
-	 * if (renavam.equals(strRenavam)) {
-	 * JOptionPane.showMessageDialog(null, "Est� na lista!");
-	 * return veic[x];
-	 * }
-	 * } else if (veic[x] instanceof VeiculosCarga) {
-	 * VeiculosCarga temp = (VeiculosCarga) veic[x];
-	 * String renavam = temp.getRenavam();
-	 * if (renavam.equals(strRenavam)) {
-	 * JOptionPane.showMessageDialog(null, "Est� na lista!");
-	 * return veic[x];
-	 * }
-	 * } else if (veic[x] instanceof CompactoLuxo) {
-	 * CompactoLuxo temp = (CompactoLuxo) veic[x];
-	 * String renavam = temp.getRenavam();
-	 * if (renavam.equals(strRenavam)) {
-	 * JOptionPane.showMessageDialog(null, "Est� na lista!");
-	 * return veic[x];
-	 * }
-	 * } else if (veic[x] instanceof Compacto) {
-	 * Compacto temp = (Compacto) veic[x];
-	 * String renavam = temp.getRenavam();
-	 * if (renavam.equals(strRenavam)) {
-	 * JOptionPane.showMessageDialog(null, "Est� na lista!");
-	 * return veic[x];
-	 * }
-	 * } else if (veic[x] instanceof Suvs) {
-	 * Suvs temp = (Suvs) veic[x];
-	 * String renavam = temp.getRenavam();
-	 * if (renavam.equals(strRenavam)) {
-	 * JOptionPane.showMessageDialog(null, "Est� na lista!");
-	 * return veic[x];
-	 * }
-	 * } else if (veic[x] instanceof Sedan) {
-	 * Sedan temp = (Sedan) veic[x];
-	 * String renavam = temp.getRenavam();
-	 * if (renavam.equals(strRenavam)) {
-	 * JOptionPane.showMessageDialog(null, "Est� na lista!");
-	 * return veic[x];
-	 * }
-	 * }
-	 * }
-	 * JOptionPane.showMessageDialog(null, "N�o est� na lista!");
-	 * return null;
-	 */
-	// }
-
-	public static void pesquisarVeiculosMarcaModeloRen() {
-	}
-
-	// m�todos get's
 	public String getMarca() {
 		return marca;
 	}
@@ -373,5 +39,208 @@ public class Veiculos {
 
 	public float getCapacidadeTanque() {
 		return capacidadeTanque;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public void setAnoFabricacao(String anoFabricacao) {
+		this.anoFabricacao = anoFabricacao;
+	}
+
+	public void setAnoModelo(String anoModelo) {
+		this.anoModelo = anoModelo;
+	}
+
+	public void setRenavam(String renavam) {
+		this.renavam = renavam;
+	}
+
+	public void setCapacidadeTanque(float capacidadeTanque) {
+		this.capacidadeTanque = capacidadeTanque;
+	}
+
+	public void setDiaria(Diaria diaria) {
+		this.diaria = diaria;
+	}
+
+	private static void cadastrarVeiculo(Veiculos veic) {
+		boolean adicionou = cadastroVeiculos.add(veic);
+		if (adicionou)
+			JOptionPane.showMessageDialog(null, "Veiculo cadastrado com sucesso!");
+	}
+
+	public static void removerVeiculoCadastro() {
+		boolean excluiu = false;
+		Veiculos Excluir = pesquisarVeiculosRenavam();
+		if (Excluir != null)
+			excluiu = cadastroVeiculos.remove(Excluir);
+		if (excluiu)
+			JOptionPane.showMessageDialog(null, "Veiculo removido com sucesso!");
+	}
+
+	public static void cadastrarMotocicleta() {
+		String marca = JOptionPane.showInputDialog("Marca: ");
+		String modelo = JOptionPane.showInputDialog("Modelo: ");
+		String anoFabricacao = JOptionPane.showInputDialog("Ano de fabricacao: ");
+		String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
+		String renavam = JOptionPane.showInputDialog("Renavam: ");
+		String strCapacidadeTanque = JOptionPane.showInputDialog("Capacidade do tanque de combustivel: ");
+		float capacidadeTanque = Float.parseFloat(strCapacidadeTanque);
+		String strFreiosAbs = JOptionPane.showInputDialog("Possui freios Abs? ");
+		boolean freiosAbs = Boolean.parseBoolean(strFreiosAbs);
+		String strControleTracao = JOptionPane.showInputDialog("Possui controle de tracao? ");
+		boolean controleTracao = Boolean.parseBoolean(strControleTracao);
+		String strPilotoAutomatico = JOptionPane.showInputDialog("Possui piloto automatico? ");
+		boolean pilotoAutomatico = Boolean.parseBoolean(strPilotoAutomatico);
+		String modoPilotagem = JOptionPane.showInputDialog("Modo de pilotagem: ");
+		Motocicletas moto = new Motocicletas(marca, modelo, anoFabricacao, anoModelo,
+				renavam, capacidadeTanque, freiosAbs, controleTracao, pilotoAutomatico, modoPilotagem);
+		cadastrarVeiculo(moto);	 
+	}
+
+	public static void cadastrarVeiculosPassageiros() {
+		String marca = JOptionPane.showInputDialog("Marca: ");
+		String modelo = JOptionPane.showInputDialog("Modelo: ");
+		String anoFabricacao = JOptionPane.showInputDialog("Ano de fabricacao: ");
+		String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
+		String renavam = JOptionPane.showInputDialog("Renavam: ");
+		String strCapacidadeTanque = JOptionPane.showInputDialog("Capacidade do tanque de combustivel: ");
+		float capacidadeTanque = Float.parseFloat(strCapacidadeTanque);
+		//String numeroOcupantes = JOptionPane.showInputDialog("Numero de ocupantes: ");
+		String strArCondicionado = JOptionPane.showInputDialog("Possui ar-condicionado? ");
+		boolean arCondicionado = Boolean.parseBoolean(strArCondicionado);
+		String strDirecaoHidraulica = JOptionPane.showInputDialog("Possui direcao hidraulica? ");
+		boolean direcaoHidraulica = Boolean.parseBoolean(strDirecaoHidraulica);
+		String strTv = JOptionPane.showInputDialog("Pssui tv? ");
+		boolean tv = Boolean.parseBoolean(strTv);
+		VeiculosPassageiros veicPas = new VeiculosPassageiros(marca, modelo, anoFabricacao, anoModelo, renavam,
+				capacidadeTanque, arCondicionado, direcaoHidraulica, tv);
+		cadastrarVeiculo(veicPas);
+	}
+
+	public static void cadastrarVeiculosCarga() {
+		String marca = JOptionPane.showInputDialog("Marca: ");
+		String modelo = JOptionPane.showInputDialog("Modelo: ");
+		String anoFabricacao = JOptionPane.showInputDialog("Ano de fabricacao: ");
+		String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
+		String renavam = JOptionPane.showInputDialog("Renavam: ");
+		String strCapacidadeTanque = JOptionPane.showInputDialog("Capacidade do tanque de combustivel: ");
+		float capacidadeTanque = Float.parseFloat(strCapacidadeTanque);
+		String strTaraVeiculo = JOptionPane.showInputDialog("Tara do veiculo: ");
+		float taraVeiculo = Float.parseFloat(strTaraVeiculo);
+		String strTamCompartimento = JOptionPane.showInputDialog("Tamanho do compartimento de carga: ");
+		float tamCompartimento = Float.parseFloat(strTamCompartimento);
+		String tipoCompartimento = JOptionPane.showInputDialog("Tipo do compartimento: ");
+		VeiculosCarga veicCar = new VeiculosCarga(marca, modelo, anoFabricacao,
+				anoModelo, renavam, capacidadeTanque,
+				taraVeiculo, tamCompartimento, tipoCompartimento);
+		cadastrarVeiculo(veicCar); 
+	}
+
+	public static void cadastrarCompactoLuxo() {
+		String marca = JOptionPane.showInputDialog("Marca: ");
+		String modelo = JOptionPane.showInputDialog("Modelo: ");
+		String anoFabricacao = JOptionPane.showInputDialog("Ano de fabricacao: ");
+		String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
+		String renavam = JOptionPane.showInputDialog("Renavam: ");
+		String strCapacidadeTanque = JOptionPane.showInputDialog("Capacidade do tanque de combustivel: ");
+		float capacidadeTanque = Float.parseFloat(strCapacidadeTanque);
+		String strArCondicionado = JOptionPane.showInputDialog("Possui ar-condicionado? ");
+		boolean arCondicionado = Boolean.parseBoolean(strArCondicionado); 
+		String strDirecaoHidraulica = JOptionPane.showInputDialog("Possui direcao hidraulica? ");
+		boolean direcaoHidraulica = Boolean.parseBoolean(strDirecaoHidraulica);
+		String strCambioAutomatico = JOptionPane.showInputDialog("Possui cambio automatico? ");
+		boolean cambioAutomatico = Boolean.parseBoolean(strCambioAutomatico);
+		CompactoLuxo compLuxo = new CompactoLuxo(marca, modelo, anoFabricacao,
+				anoModelo, renavam, capacidadeTanque, arCondicionado, direcaoHidraulica, cambioAutomatico);
+		cadastrarVeiculo(compLuxo); 
+	}
+
+	public static void cadastrarCompacto() {
+		String marca = JOptionPane.showInputDialog("Marca: ");
+		String modelo = JOptionPane.showInputDialog("Modelo: ");
+		String anoFabricacao = JOptionPane.showInputDialog("Ano de fabricacao: ");
+		String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
+		String renavam = JOptionPane.showInputDialog("Renavam: ");
+		String strCapacidadeTanque = JOptionPane.showInputDialog("Capacidade do tanque de combustivel: ");
+		float capacidadeTanque = Float.parseFloat(strCapacidadeTanque);
+		String strArCondicionado = JOptionPane.showInputDialog("Possui ar-condicionado? ");
+		boolean arCondicionado = Boolean.parseBoolean(strArCondicionado);
+		String strDirecaoHidraulica = JOptionPane.showInputDialog("Possui direcao hidraulica? ");
+		boolean direcaoHidraulica = Boolean.parseBoolean(strDirecaoHidraulica);
+		String strCambioAutomatico = JOptionPane.showInputDialog("Possui cambio Automatico? ");
+		boolean cambioAutomatico = Boolean.parseBoolean(strCambioAutomatico);
+		Compacto comp = new Compacto(marca, modelo, anoFabricacao, anoModelo,
+				renavam, capacidadeTanque, arCondicionado, direcaoHidraulica, cambioAutomatico);
+		cadastrarVeiculo(comp);
+	}
+
+	public static void cadastrarSuvs() {
+		String marca = JOptionPane.showInputDialog("Marca: ");
+		String modelo = JOptionPane.showInputDialog("Modelo: ");
+		String anoFabricacao = JOptionPane.showInputDialog("Ano de fabricacao: ");
+		String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
+		String renavam = JOptionPane.showInputDialog("Renavam: ");
+		String strCapacidadeTanque = JOptionPane.showInputDialog("Capacidade do tanque de combustivel: ");
+		float capacidadeTanque = Float.parseFloat(strCapacidadeTanque);
+		String strArCondicionado = JOptionPane.showInputDialog("Possui ar-condicionado? ");
+		boolean arCondicionado = Boolean.parseBoolean(strArCondicionado);
+		String strDirecaoHidraulica = JOptionPane.showInputDialog("Possui direcao hidraulica? ");
+		boolean direcaoHidraulica = Boolean.parseBoolean(strDirecaoHidraulica);
+		String strCambioAutomatico = JOptionPane.showInputDialog("Possui cambio Automatico? ");
+		boolean cambioAutomatico = Boolean.parseBoolean(strCambioAutomatico);
+		Suvs suv = new Suvs(marca, modelo, anoFabricacao, anoModelo, renavam,
+				capacidadeTanque, arCondicionado, direcaoHidraulica, cambioAutomatico);
+		cadastrarVeiculo(suv);
+	}
+
+	public static void cadastrarSedan() {
+		String marca = JOptionPane.showInputDialog("Marca: ");
+		String modelo = JOptionPane.showInputDialog("Modelo: ");
+		String anoFabricacao = JOptionPane.showInputDialog("Ano de fabricacao: ");
+		String anoModelo = JOptionPane.showInputDialog("Ano do modelo: ");
+		String renavam = JOptionPane.showInputDialog("Renavam: ");
+		String strCapacidadeTanque = JOptionPane.showInputDialog("Capacidade do tanque de combustivel: ");
+		float capacidadeTanque = Float.parseFloat(strCapacidadeTanque);		 
+		String strArCondicionado = JOptionPane.showInputDialog("Possui ar-condicionado? ");
+		boolean arCondicionado = Boolean.parseBoolean(strArCondicionado);
+		String strDirecaoHidraulica = JOptionPane.showInputDialog("Possui direcao hidraulica? ");
+		boolean direcaoHidraulica = Boolean.parseBoolean(strDirecaoHidraulica);
+		String strCambioAutomatico = JOptionPane.showInputDialog("Possui cambio Automatico? ");
+		boolean cambioAutomatico = Boolean.parseBoolean(strCambioAutomatico);
+		Sedan sed = new Sedan(marca, modelo, anoFabricacao, anoModelo, renavam,
+				capacidadeTanque, arCondicionado, direcaoHidraulica, cambioAutomatico);
+		cadastrarVeiculo(sed);
+
+	}
+
+	public static void imprimirVeiculos() {
+
+	}
+
+	public static Veiculos pesquisarVeiculosRenavam() {
+		String renavam = JOptionPane.showInputDialog("Digite o Renavam do veiculo: ");
+		Veiculos veiculoPesquisado = null;
+		for (Veiculos v : cadastroVeiculos) { 
+			if (v.getRenavam().equals(renavam)) {
+				JOptionPane.showMessageDialog(null, "Veiculo encontrado!");
+				veiculoPesquisado = v;
+			} 
+		}
+		try {
+			if (veiculoPesquisado == null) {
+				throw new ObjetoNaoEncontradoException("Objeto nao encontrado!");
+			}
+		} catch (ObjetoNaoEncontradoException ex) {
+			String msg = ex.getMessage();
+			System.out.println("Exception " + msg);
+		}
+		return veiculoPesquisado;
 	}
 }
