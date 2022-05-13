@@ -1,4 +1,4 @@
-# Locadora de Veiculos
+# Locadora de Veículos
 Projeto final da disciplina de programação orientada a objetos (UnB) ministrada pelo professor André Lanna.
 
 Feito por Mário Vinícius Beleza Carneiro 
